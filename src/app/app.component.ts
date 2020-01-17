@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'church-app';
+
+  person = {
+    avatar: 'assets/images/avatar.jpg',
+    name: 'Neitiri',
+    office: 'Secretária'
+  }
 }

@@ -1,0 +1,87 @@
+@import 'src/styles.scss';
+
+#sidebar {
+    height: 100%;
+    display: grid;
+    grid-template-columns: 280px auto;
+    grid-template-rows: max-content;
+    grid-template-areas:
+        "sidebar toolbar"
+        "sidebar content";
+
+    .left-side {
+        display: flex;
+        flex-direction: column;
+        grid-area: sidebar;
+        background-color: #444;
+        color: white;
+        align-items: center;
+        padding: 25px 0;
+
+        .avatar {
+            display: grid;
+            width: -webkit-fill-available;
+            grid-gap: 10px;
+            padding: 0 10px;
+
+            img {
+                width: 120px;
+                height: 120px;
+                border-radius: 50%;
+                box-shadow: 2px 3px 10px rgba(0, 0, 0, .5);
+                justify-self: center;
+            }
+
+            label {
+                font-weight: bold;
+                text-align: center;
+            }
+
+            span {
+                font-size: 12px;
+                text-align: center;
+            }
+
+            mat-divider {
+                border-top-color: #7D7D7D;
+            }
+        }
+
+        mat-list {
+            width: 100%;
+
+            mat-list-item {
+                display: flex;
+                color: #EEE;
+                cursor: pointer;
+                padding: 0 10px;
+                width: initial;
+
+                &:hover {
+                    color: $orange;
+                    background-color: #383838;
+
+                    &::after {
+                        position: absolute;
+                        content: '-';
+                        background-color: $orange;
+                        color: $orange;
+                        height: inherit;
+                        width: 3px;
+                        border-radius: 5px;
+                        font-size: 0px;
+                    }
+                }
+            }
+        }
+    }
+
+    #content {
+        grid-area: content;
+        padding: 25px 10px;
+    }
+
+    mat-toolbar {
+        grid-area: toolbar;
+    }
+}

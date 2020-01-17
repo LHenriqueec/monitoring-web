@@ -1,0 +1,29 @@
+<div id="sidebar">
+    <mat-toolbar>
+        <span>My Application</span>
+    </mat-toolbar>
+
+    <div class="left-side">
+      <div class="avatar">
+        <img [src]="person.avatar">
+
+        <label>{{ person.name }}</label>
+        <span>{{ person.office }}</span>
+
+        <mat-divider></mat-divider>
+      </div>
+
+      <mat-list>
+          <mat-list-item *ngFor="let menu of menus">
+            <mat-icon [fontSet]="menu.fontSet" [fontIcon]="menu.fontIcon" matListIcon></mat-icon>
+            <span matLine>{{ menu.description }}</span>
+          </mat-list-item>
+      </mat-list>
+    </div>
+
+
+    <div id="content">
+        <ng-content select=".content-menu"></ng-content>
+    </div>
+</div>
+
