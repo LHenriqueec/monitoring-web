@@ -1,14 +1,26 @@
 <div id="sidebar">
-    <mat-toolbar>
-        <span>My Application</span>
-    </mat-toolbar>
 
+<!-- LEFT SIDE MENU -->
     <div class="left-side">
       <div class="avatar">
         <img [src]="person.avatar">
 
-        <label>{{ person.name }}</label>
-        <span>{{ person.office }}</span>
+        <div id="options">
+          <button mat-icon-button>
+            <mat-icon [matBadge]="amountNotifications" matBadgePosition="above after" matBadgeColor="warn" fontSet="far" fontIcon="fa-bell"></mat-icon>
+          </button>
+
+          <div id="info">
+            <label>{{ person.name }}</label>
+            <span>{{ person.office }}</span>
+          </div>
+
+          <button mat-icon-button>
+            <mat-icon fontSet="fas" fontIcon="fa-bars"></mat-icon>
+          </button>
+
+        </div>
+
 
         <mat-divider></mat-divider>
       </div>
@@ -25,7 +37,7 @@
       </div>
     </div>
 
-
+<!-- CONTENT -->
     <div id="content">
         <ng-content select=".content-menu"></ng-content>
     </div>

@@ -20,4 +20,6 @@ export class MenuComponent {
     {fontSet: 'far', fontIcon: 'fa-chart-bar', description: 'Relatório'},
   ];
 
+  amountNotifications: number = 5;
+
 }
