@@ -9,6 +9,13 @@
         "sidebar toolbar"
         "sidebar content";
 
+    mat-toolbar {
+        #logout {
+            color: #ef5d55;
+            float: right;
+        }
+    }
+
     .left-side {
         display: flex;
         flex-direction: column;
@@ -16,7 +23,8 @@
         background-color: #444;
         color: white;
         align-items: center;
-        padding: 25px 0;
+        justify-content: space-between;
+        padding: 25px 0 0;
 
         .avatar {
             display: grid;
@@ -83,5 +91,13 @@
 
     mat-toolbar {
         grid-area: toolbar;
+    }
+
+    #footer-menu {
+        width: -webkit-fill-available;
+
+        button {
+            width: inherit;
+        }
     }
 }
