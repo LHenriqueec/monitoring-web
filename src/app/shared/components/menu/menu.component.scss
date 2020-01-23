@@ -66,6 +66,23 @@
                 cursor: pointer;
                 padding: 0 10px;
                 width: initial;
+                outline: none;
+
+                &.active {
+                    color: $orange;
+                    background-color: #383838;
+
+                    &::after {
+                        position: absolute;
+                        content: '-';
+                        background-color: $orange;
+                        color: $orange;
+                        height: inherit;
+                        width: 3px;
+                        border-radius: 5px;
+                        font-size: 0px;
+                    }
+                }
 
                 &:hover {
                     color: $orange;
@@ -90,6 +107,10 @@
                 box-shadow: none;
                 color: #EEE;
                 padding: 0 10px;
+
+                &.active {
+                    background: #383838;
+                }
 
                 mat-expansion-panel-header {
                     min-width: 255px;

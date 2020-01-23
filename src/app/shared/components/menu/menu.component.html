@@ -26,7 +26,7 @@
 
       <mat-list>
         <nav *ngFor="let menu of menus">
-          <mat-list-item *ngIf="isEmpty(menu.childrens); else elseBlock">
+          <mat-list-item *ngIf="isEmpty(menu.childrens); else elseBlock" [routerLink]="menu.router" routerLinkActive="active">
             <mat-icon [fontSet]="menu.fontSet" [fontIcon]="menu.fontIcon" matListIcon></mat-icon>
             <span matLine>{{ menu.description }}</span>
           </mat-list-item>
@@ -34,13 +34,13 @@
           <!-- Menu Expandable -->
           <ng-template #elseBlock>
             <mat-accordion>
-              <mat-expansion-panel>
+              <mat-expansion-panel routerLinkActive="active">
                 <mat-expansion-panel-header>
                   <mat-icon [fontSet]="menu.fontSet" [fontIcon]="menu.fontIcon"></mat-icon>
                   <span>{{ menu.description }}</span>
                 </mat-expansion-panel-header>
 
-                <mat-list-item *ngFor="let child of menu.childrens">
+                <mat-list-item *ngFor="let child of menu.childrens" [routerLink]="child.router" routerLinkActive="active">
                   <mat-icon [fontSet]="child.fontSet" [fontIcon]="child.fontIcon" matListIcon></mat-icon>
                   <span matLine>{{ child.description }}</span>
                 </mat-list-item>

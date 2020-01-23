@@ -15,12 +15,14 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './modules/dashboard/pages/home/home.component';
 import { MenuComponent } from './shared/components/menu/menu.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ResidentsComponent } from './modules/condominium/residents/residents.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     MenuComponent,
+    ResidentsComponent,
   ],
   imports: [
     BrowserModule,

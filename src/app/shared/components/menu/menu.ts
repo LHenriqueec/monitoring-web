@@ -3,5 +3,6 @@ interface Menu {
     fontIcon: string,
     description: string,
     childrens?: Menu[],
-    isActive?: boolean
+    isActive?: boolean,
+    router?: string
 }
