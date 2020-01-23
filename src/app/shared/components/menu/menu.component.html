@@ -1,0 +1,63 @@
+<div id="sidebar">
+
+<!-- LEFT SIDE MENU -->
+    <div class="left-side">
+      <div class="avatar">
+        <img [src]="person.avatar">
+
+        <div id="options">
+          <button mat-icon-button>
+            <mat-icon [matBadge]="amountNotifications" matBadgePosition="above after" matBadgeColor="warn" fontSet="far" fontIcon="fa-bell"></mat-icon>
+          </button>
+
+          <div id="info">
+            <label>{{ person.name }}</label>
+            <span>{{ person.office }}</span>
+          </div>
+
+          <button mat-icon-button>
+            <mat-icon fontSet="fas" fontIcon="fa-bars"></mat-icon>
+          </button>
+
+        </div>
+
+        <mat-divider></mat-divider>
+      </div>
+
+      <mat-list>
+        <nav *ngFor="let menu of menus">
+          <mat-list-item *ngIf="isEmpty(menu.childrens); else elseBlock" [routerLink]="menu.router" routerLinkActive="active">
+            <mat-icon [fontSet]="menu.fontSet" [fontIcon]="menu.fontIcon" matListIcon></mat-icon>
+            <span matLine>{{ menu.description }}</span>
+          </mat-list-item>
+
+          <!-- Menu Expandable -->
+          <ng-template #elseBlock>
+            <mat-accordion>
+              <mat-expansion-panel routerLinkActive="active">
+                <mat-expansion-panel-header>
+                  <mat-icon [fontSet]="menu.fontSet" [fontIcon]="menu.fontIcon"></mat-icon>
+                  <span>{{ menu.description }}</span>
+                </mat-expansion-panel-header>
+
+                <mat-list-item *ngFor="let child of menu.childrens" [routerLink]="child.router" routerLinkActive="active">
+                  <mat-icon [fontSet]="child.fontSet" [fontIcon]="child.fontIcon" matListIcon></mat-icon>
+                  <span matLine>{{ child.description }}</span>
+                </mat-list-item>
+              </mat-expansion-panel>
+            </mat-accordion>
+          </ng-template>
+        </nav>
+      </mat-list>
+
+      <div id="footer-menu">
+        <button mat-raised-button aria-label color="warn">Sair</button>
+      </div>
+    </div>
+
+<!-- CONTENT -->
+    <div id="content">
+        <ng-content select=".content-menu"></ng-content>
+    </div>
+</div>
+
